@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U3E2 · Laboratorio del navegador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body id="">
+<header><h1>Laboratorio del navegador</h1><p>U3E2 · Uso del objeto window</p></header>
+<main>
+<div class="aviso">Completa las funciones de <code>js/window.js</code>. Mantén los nombres de los archivos y las funciones. Abre la consola del navegador para ver los resultados.</div><section><h2>1. Dirección y navegador</h2><div class="botones">
+<button type="button" onclick="mostrarDireccion()">Mostrar dirección</button>
+<button type="button" onclick="mostrarNavegador()">Mostrar navegador</button>
+</div></section>
+<section><h2>2. Dimensiones y desplazamiento</h2><div class="botones">
+<button type="button" onclick="mostrarDimensiones()">Mostrar dimensiones</button>
+<button type="button" onclick="bajar()">Bajar 300 px</button>
+<button type="button" onclick="subir()">Subir 300 px</button>
+<button type="button" onclick="irAPosicion()">Ir a y = 1000</button>
+<button type="button" onclick="volverAlInicio()">Volver al inicio</button>
+</div></section>
+<section><h2>3. Navegación e historial</h2><div class="botones">
+<button type="button" onclick="irAlLaboratorio()">Ir al laboratorio</button>
+<button type="button" onclick="irAlResultado()">Ir al resultado</button>
+<button type="button" onclick="sustituirPorResultado()">Sustituir por resultado</button>
+<button type="button" onclick="recargarPagina()">Recargar página</button>
+<button type="button" onclick="retroceder()">Retroceder</button>
+<button type="button" onclick="avanzar()">Avanzar</button>
+<button type="button" onclick="consultarHistorial()">Consultar historial</button>
+</div></section>
+<section><h2>4. Ventanas</h2><div class="botones">
+<button type="button" onclick="abrirAuxiliar()">Abrir auxiliar</button>
+<button type="button" onclick="reutilizarAuxiliar()">Reutilizar auxiliar</button>
+<button type="button" onclick="abrirOtraPestana()">Abrir otra pestaña</button>
+<button type="button" onclick="abrirPaginaExterna()">Abrir página externa</button>
+<button type="button" onclick="cerrarAuxiliar()">Cerrar auxiliar</button>
+</div></section>
+<section><h2>5. Escritura del documento</h2><div class="botones">
+<button type="button" onclick="abrirEscrituraCarga()">Abrir escritura durante la carga</button>
+<button type="button" onclick="abrirEscrituraPosterior()">Abrir escritura posterior</button>
+</div></section>
+<section class="aviso"><h2>Pruebas de escritura</h2><p>La escritura durante la carga se ejecuta automáticamente en <code>escritura_carga.html</code>. La escritura posterior se prueba con el botón de <code>escritura_posterior.html</code>.</p></section><section class="zona-scroll"><h2>Zona de desplazamiento 1</h2><p>Utiliza los botones para subir, bajar e ir a una posición concreta.</p><p class="marca">Referencia visual 1</p><div class="botones">
+<button type="button" onclick="bajar()">Bajar 300 px</button>
+<button type="button" onclick="subir()">Subir 300 px</button>
+<button type="button" onclick="irAPosicion()">Ir a y = 1000</button>
+<button type="button" onclick="volverAlInicio()">Volver al inicio</button>
+</div></section>
+<section class="zona-scroll"><h2>Zona de desplazamiento 2</h2><p>Utiliza los botones para subir, bajar e ir a una posición concreta.</p><p class="marca">Referencia visual 2</p><div class="botones">
+<button type="button" onclick="bajar()">Bajar 300 px</button>
+<button type="button" onclick="subir()">Subir 300 px</button>
+<button type="button" onclick="irAPosicion()">Ir a y = 1000</button>
+<button type="button" onclick="volverAlInicio()">Volver al inicio</button>
+</div></section>
+<section class="zona-scroll"><h2>Zona de desplazamiento 3</h2><p>Utiliza los botones para subir, bajar e ir a una posición concreta.</p><p class="marca">Referencia visual 3</p><div class="botones">
+<button type="button" onclick="bajar()">Bajar 300 px</button>
+<button type="button" onclick="subir()">Subir 300 px</button>
+<button type="button" onclick="irAPosicion()">Ir a y = 1000</button>
+<button type="button" onclick="volverAlInicio()">Volver al inicio</button>
+</div></section>
+<section class="zona-scroll"><h2>Zona de desplazamiento 4</h2><p>Utiliza los botones para subir, bajar e ir a una posición concreta.</p><p class="marca">Referencia visual 4</p><div class="botones">
+<button type="button" onclick="bajar()">Bajar 300 px</button>
+<button type="button" onclick="subir()">Subir 300 px</button>
+<button type="button" onclick="irAPosicion()">Ir a y = 1000</button>
+<button type="button" onclick="volverAlInicio()">Volver al inicio</button>
+</div></section>
+
+</main>
+<footer>Práctica de Desarrollo Web en Entorno Cliente</footer>
+<script src="js/window.js"></script>
+</body>
+</html>

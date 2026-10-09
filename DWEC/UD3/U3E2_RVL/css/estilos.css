@@ -1,0 +1,17 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f1f5f9; color: #172b42; font: 16px/1.6 system-ui, sans-serif; }
+header { background: #173e60; color: white; padding: 24px max(24px, calc((100% - 1000px)/2)); }
+header p { margin: 4px 0; }
+main { max-width: 1000px; margin: 24px auto; padding: 0 20px; }
+h1 { margin: 0; font-size: 1.8rem; }
+h2 { font-size: 1.25rem; margin-top: 0; }
+section, .aviso { background: white; padding: 22px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #d4e0eb; }
+.aviso { border-left: 5px solid #16827e; }
+.botones { display: flex; flex-wrap: wrap; gap: 10px; }
+button { font: inherit; cursor: pointer; background: #eaf3fb; border: 1px solid #a4bfd5; color: #143957; padding: 9px 14px; border-radius: 7px; }
+button:hover { background: #d9eafa; }
+button:focus-visible { outline: 3px solid #16827e; outline-offset: 3px; }
+code { background: #eaf0f6; padding: 2px 5px; border-radius: 4px; }
+.zona-scroll { min-height: 650px; background: linear-gradient(white, #e5f0f6); }
+.marca { font-weight: bold; color: #126663; }
+footer { padding: 18px 24px; text-align: center; color: #486078; }
