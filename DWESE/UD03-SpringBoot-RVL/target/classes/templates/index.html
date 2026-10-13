@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}">
+<head th:replace="~{fragments/head :: head(#{nav.home})}"></head>
+<body class="d-flex flex-column min-vh-100">
+<header th:replace="~{fragments/header :: header}"></header>
+<main class="container flex-grow-1 py-5">
+  <section class="hero p-4 p-lg-5 mb-4">
+    <div class="eyebrow">DWES · Unidad 03 · Rafael Vega Librero</div>
+    <h1 class="display-5 fw-bold mt-3" th:text="#{home.heading}">Proyecto Spring Boot y Thymeleaf</h1>
+    <p class="lead mt-3" th:text="#{home.intro}">Aplicación de práctica</p>
+    <div class="d-flex flex-wrap gap-2 mt-4">
+      <a class="btn btn-primary btn-lg" th:href="@{/regions}" th:text="#{home.regions}">Regiones</a>
+      <a class="btn btn-outline-primary btn-lg" th:href="@{/provinces}" th:text="#{home.provinces}">Provincias</a>
+    </div>
+  </section>
+  <div class="row g-3">
+    <div class="col-md-4"><div class="info-card"><span class="step">01</span><h2>Spring MVC</h2><p>Controladores, rutas y plantillas Thymeleaf.</p></div></div>
+    <div class="col-md-4"><div class="info-card"><span class="step">02</span><h2>JDBC Template</h2><p>CRUD de 18 comunidades autónomas y 52 provincias.</p></div></div>
+    <div class="col-md-4"><div class="info-card"><span class="step">03</span><h2>Validación e I18n</h2><p>Formularios validados en español e inglés.</p></div></div>
+  </div>
+  <p class="small mt-4"><span th:text="#{home.hello}">Controlador de ejemplo</span>: <a th:href="@{/hello(name='Rafael Vega Librero')}">/hello?name=Rafael Vega Librero</a></p>
+</main>
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>
