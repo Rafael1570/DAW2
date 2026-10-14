@@ -4,10 +4,10 @@ services:
     container_name: ud02-crud-users-db
     restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:?Create .env from .env.example}
-      MARIADB_DATABASE: ${DB_DATABASE:?Create .env from .env.example}
-      MARIADB_USER: ${DB_USER:?Create .env from .env.example}
-      MARIADB_PASSWORD: ${DB_PASSWORD:?Create .env from .env.example}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:?Create .env with MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_DATABASE:?Create .env with DB_DATABASE}
+      MARIADB_USER: ${DB_USER:?Create .env with DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Create .env with DB_PASSWORD}
     ports:
       - "3307:3306"
     volumes:

@@ -10,7 +10,15 @@ Aplicación Maven WAR con Servlets, JSP, JSTL y MariaDB. El script `src/main/res
 
 ## Arranque local
 
-1. Copia `.env.example` como `.env` y configura claves locales. El `.env` real está excluido de Git.
+1. Crea un archivo `.env` local con estos valores y cambia las dos contraseñas. No lo subas al repositorio:
+
+   ```dotenv
+   MARIADB_ROOT_PASSWORD=CAMBIA_ESTA_CLAVE
+   DB_DATABASE=dwese_users
+   DB_USER=dwese_app
+   DB_PASSWORD=CAMBIA_ESTA_OTRA_CLAVE
+   DB_URL=jdbc:mariadb://localhost:3307/dwese_users
+   ```
 2. Arranca la base de datos: `docker compose up -d db`.
 3. Espera a que esté sana: `docker compose ps`.
 4. Arranca Jetty desde esta carpeta: `mvn jetty:run`.
@@ -62,7 +70,7 @@ Cuando Jetty termine de arrancar, abre `http://localhost:8080/users`.
 Pulsa Ctrl+C para detener Jetty antes de ejecutar de nuevo `mvn clean`.
 
 El proyecto incluye Maven Wrapper fijado a Maven 3.9.16. En otros ordenadores
-puedes sustituir `mvn` por `.\mvnw.cmd` en Windows o `./mvnw` en Linux/macOS;
+puedes sustituir `mvn` por `.\mvnw.cmd` en Windows o `bash ./mvnw` en Linux/macOS;
 seguirás necesitando Java 21 y Docker. El primer uso descarga Maven.
 
 ## Datos de ejemplo
@@ -80,4 +88,3 @@ El script crea `admin`, `jdoe`, `maria` y `blockeduser`; las contraseñas de eje
 - Cambia el idioma a inglés y repite al menos una vista CRUD.
 
 El vídeo, la invitación del profesor al repositorio y la publicación remota son entregables externos; no se generan al ejecutar la aplicación.
-
