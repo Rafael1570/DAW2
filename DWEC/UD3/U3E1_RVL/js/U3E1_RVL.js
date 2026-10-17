@@ -1,54 +1,91 @@
-//Rafael Vega Librero
+
+// Rafael Vega Librero
+
 let nombreProyecto = prompt("Introduce el nombre del proyecto:");
-let dia = prompt("Introduce el día de entrega del proyecto:");
-let mes = prompt("Introduce el mes de entrega del proyecto:");
+
+if (nombreProyecto !== null) {
+
+    let dia = parseInt(prompt("Introduce el día de revisión:"));
+    let mes = parseInt(prompt("Introduce el mes de revisión (enero = 0):"));
+
+    /** 1. Datos del proyecto */
+
+    let nombreProyectoMinusculas = nombreProyecto.toLowerCase();
+    let nombreProyectoMayusculas = nombreProyecto.toUpperCase();
+
+    let palabrasSeparadas = nombreProyecto.split(" ");
+
+    let numeroLetras = nombreProyecto.replaceAll(" ", "").length;
+
+    console.log("DATOS DEL PROYECTO");
+
+    console.log("Nombre en minúsculas: " + nombreProyectoMinusculas);
+    console.log("Nombre en mayúsculas: " + nombreProyectoMayusculas);
+
+    console.log("Primera palabra: " + palabrasSeparadas[0]);
+    console.log("Segunda palabra: " + palabrasSeparadas[1]);
+    console.log("Tercera palabra: " + palabrasSeparadas[2]);
+
+    console.log("Nombre completo: " + nombreProyecto);
+    console.log("Número de letras: " + numeroLetras);
+
+    // Código del proyecto
+
+    let codigoProyecto = palabrasSeparadas[0][0] +
+                         palabrasSeparadas[1] +
+                         palabrasSeparadas[2][0];
+
+    codigoProyecto = codigoProyecto.toLowerCase();
+
+    console.log("Código del proyecto: " + codigoProyecto);
 
 
-/** 1. Mostramos el nombre del proyecto en minisculas y en mayúsculas, 
- * cada una de las tres palabras separadas. y contar las letras que forma
- * el nombre del proyecto */
-let nombreProyectoMinusculas = nombreProyecto.toLowerCase();
-let nombreProyectoMayusculas = nombreProyecto.toUpperCase();
-let palabrasSeparadas = nombreProyecto.split(" ");
-let numeroLetras = nombreProyecto.length;
+    /** 2. Cuenta atrás para el lanzamiento */
 
-console.log("Nombre del proyecto en minúsculas: " + nombreProyectoMinusculas);
-console.log("Nombre del proyecto en mayúsculas: " + nombreProyectoMayusculas);
-console.log("Palabras separadas: " + palabrasSeparadas.join(", "));
-console.log("Número de letras que forma el nombre del proyecto: " + numeroLetras);
-// codigo del proyecto
+    let fechaDespegue = new Date(2027, 5, 15);
+    let fechaActual = new Date();
 
-let codigoProyecto = nombreProyecto.length;
-for (let j = 0; j < codigoProyecto.length; j++) {
-}    
+    let diferencia = fechaDespegue - fechaActual;
+
+    let diasRestantes = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+
+    console.log("Faltan " + diasRestantes + " días para el lanzamiento");
 
 
+    /** 3. Revisiones anuales que caen en lunes */
 
-/** 2.Cuenta atras para lanzamiento */
+    let añosLunes = [];
 
-let fechaDespegue = new Date(15, 5, 2027);
-let fechaActual = new Date();
-let diferencia = fechaDespegue - fechaActual;
-let diasRestantes = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    console.log("REVISIONES QUE CAERÁN EN LUNES");
 
-console.log("Faltan " + diasRestantes + " días para el lanzamiento de la misión");
+    for (let i = fechaActual.getFullYear(); i <= 2050; i++) {
 
-/** 3. Revisiones anuales y mostrar solo los que caen lunes */
-for (let i = fechaActual.getFullYear(); i < 2050; i++) {
-    let fechaRevision = new Date(i, 0, 1);
-    if (fechaRevision.getDay() === 1) {
-        console.log("Revisión anual para el año " + i + ": " + fechaRevision);
+        let fechaRevision = new Date(i, mes, dia);
+
+        if (fechaRevision.getDay() === 1 &&
+            fechaRevision.getMonth() === mes &&
+            fechaRevision.getDate() === dia) {
+
+            console.log(i);
+            añosLunes.push(i);
+        }
     }
+
+
+    /** 4. Informe final de la misión */
+
+    console.log("------------------------------------");
+    console.log("INFORME FINAL DE LA MISIÓN");
+    console.log("------------------------------------");
+
+    console.log("Nombre del proyecto: " + nombreProyecto);
+    console.log("Código del proyecto: " + codigoProyecto);
+
+    console.log("Faltan " + diasRestantes + " días para el lanzamiento");
+
+    console.log("La revisión anual caerá en lunes en los años:");
+
+    console.log(añosLunes.join("\n"));
+
+    console.log("PROYECTO PREPARADO PARA LA MISIÓN");
 }
-
-// Informe final de la misión
-console.log("------------------------------------");
-console.log("     Informe final de la misión:");
-console.log("------------------------------------");
-console.log("Nombre del proyecto: " + nombreProyecto);
-console.log("Código del proyecto: "  );
-console.log("Faltan " + diasRestantes + " días para el lanzamiento");
-console.log("La revisión anual del proyecto caerá en lunes en los años: ");
-console.log(fechaRevision + "\n")
-
-
