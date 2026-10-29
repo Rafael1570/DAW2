@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(${region.id == null} ? #{msg.region-form.add} : #{msg.region-form.edit}, ~{::main})}">
+<body>
+<main class="form-page">
+<div class="form-card">
+  <h1 th:text="${region.id == null} ? #{msg.region-form.add} : #{msg.region-form.edit}">Comunidad Autónoma</h1>
+  <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+  <form method="post" th:object="${region}" th:action="${region.id == null} ? @{/regions/insert} : @{/regions/update}">
+    <input type="hidden" th:field="*{id}">
+    <div class="mb-3"><label for="code" class="form-label" th:text="#{msg.region-form.code}">Código</label><input id="code" class="form-control" th:classappend="${#fields.hasErrors('code')} ? 'is-invalid'" th:field="*{code}" maxlength="2" required><div class="invalid-feedback" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></div></div>
+    <div class="mb-4"><label for="name" class="form-label" th:text="#{msg.region-form.name}">Nombre</label><input id="name" class="form-control" th:classappend="${#fields.hasErrors('name')} ? 'is-invalid'" th:field="*{name}" maxlength="100" required><div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div></div>
+    <div><button class="btn btn-primary" type="submit" th:text="${region.id == null} ? #{msg.region-form.create} : #{msg.region-form.update}">Guardar</button><a class="btn btn-secondary" th:href="@{/regions}" th:text="#{msg.region-form.returnback}">Volver al listado</a></div>
+  </form>
+</div>
+</main>
+</body>
+</html>

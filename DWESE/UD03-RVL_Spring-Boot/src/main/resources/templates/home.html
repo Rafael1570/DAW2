@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout('Ticket Logger - Home', ~{::main})}">
+<body>
+<main class="position-relative bg-light" style="height: 100vh;">
+  <div class="position-absolute top-50 start-50 translate-middle text-center">
+    <h1 class="display-4 fw-bold">Ticket Logger</h1>
+    <p class="lead text-muted"><strong>Rafael Vega Librero</strong> - <span th:text="#{msg.home.description}">Aplicación web para el registro de tickets en compras de supermercado.</span></p>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.region-list.title}, ~{::main})}">
+<body>
+<main class="list-page">
+<div class="list-card">
+  <h1  th:text="#{msg.region-list.title}">Comunidades Autónomas</h1>
+  <a class="btn btn-success" th:href="@{/regions/new}" th:text="#{msg.region-list.add}">Agregar nueva Comunidad Autónoma</a>
+  <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+      <thead><tr><th th:text="#{msg.region-list.id}">ID</th><th th:text="#{msg.region-list.code}">Código</th><th th:text="#{msg.region-list.name}">Nombre</th><th  th:text="#{msg.region-list.actions}">Acciones</th></tr></thead>
+      <tbody><tr th:each="region : ${regions}">
+        <td th:text="${region.id}"></td><td><span th:text="${region.code}"></span></td><td  th:text="${region.name}"></td>
+        <td >
+          <a class="btn btn-primary btn-sm" th:href="@{/regions/edit(id=${region.id})}" th:text="#{msg.region-list.edit}">Editar</a>
+          <form class="d-inline" method="post" th:action="@{/regions/delete}" th:data-confirm="#{msg.common.confirm}">
+            <input type="hidden" name="id" th:value="${region.id}"><button class="btn btn-danger btn-sm" type="submit" th:text="#{msg.region-list.delete}">Eliminar</button>
+          </form>
+        </td>
+      </tr><tr th:if="${#lists.isEmpty(regions)}"><td colspan="4" class="text-center text-secondary py-5" th:text="#{msg.common.empty}">No hay datos.</td></tr></tbody>
+    </table>
+  </div>
+  <a class="btn btn-secondary" th:href="@{/}" th:text="#{msg.nav.home}">Inicio</a>
+</div>
+</main>
+</body>
+</html>
