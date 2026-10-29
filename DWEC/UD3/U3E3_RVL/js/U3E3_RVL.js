@@ -39,7 +39,7 @@ if (nombreUsuario !== null) {
             alert("No puedes dejar el lenguaje vacío");
             lenguajeFavorito = prompt("Introduce tu lenguaje de programación favorito:");
         }
-        if (lenguajeFavorito === null) {
+        if (lenguajeFavorito !== null) {
             localStorage.setItem("lenguaje", lenguajeFavorito);
         }
 

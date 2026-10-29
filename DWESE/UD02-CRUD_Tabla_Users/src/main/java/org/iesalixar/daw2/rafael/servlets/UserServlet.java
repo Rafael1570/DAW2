@@ -68,6 +68,12 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    /**
+     * Carga los usuarios y entrega la lista a la JSP durante esta petición.
+     *
+     * @param request petición que transporta el atributo {@code users}
+     * @param response respuesta del servlet
+     */
     private void listUsers(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         logger.entering(getClass().getName(), "listUsers");
