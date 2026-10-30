@@ -20,4 +20,9 @@ final class ProductoController extends AbstractController
     {
         return $this->render('producto/nuevo.html.twig', []);
     }
+    #[Route('/producto/{id}', name: 'app_producto_show')]
+    public function producto_show(int $id): Response
+    {
+
+    }
 }
