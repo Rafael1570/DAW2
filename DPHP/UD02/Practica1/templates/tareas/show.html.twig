@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>{{ tarea.titulo }}</h1><p>{{ tarea.descripcion }}</p><a href="{{ path('app_tareas') }}">Volver a tareas</a>
+{% endblock %}

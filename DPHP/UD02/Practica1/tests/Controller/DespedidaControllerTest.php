@@ -11,6 +11,6 @@ final class DespedidaControllerTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/despedida');
 
-        self::assertResponseIsSuccessful();
+        self::assertResponseRedirects('/saludo', 302);
     }
 }

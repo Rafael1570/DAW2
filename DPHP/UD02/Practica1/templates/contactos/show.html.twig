@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>{{ contacto.nombre }}</h1><p>Teléfono: {{ contacto.telefono }}</p><p>Correo: {{ contacto.correo }}</p><a href="{{ path('app_contactos_index') }}">Volver a la agenda</a>
+{% endblock %}

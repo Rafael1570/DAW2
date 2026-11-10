@@ -20,7 +20,7 @@ final class ProductoController extends AbstractController
     {
         return $this->render('producto/nuevo.html.twig', []);
     }
-    #[Route('/producto/{id}', name: 'app_producto_show')]
+    #[Route('/producto/{id}', name: 'app_producto_show', requirements: ['id' => '\d+'])]
     public function producto_show(int $id): Response
     {
         return $this->render('producto/show.html.twig', ['id' => $id]);

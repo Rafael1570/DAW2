@@ -1,5 +1,2 @@
-{% if encontrado %}
-    <p>La letra {{ slug }} está dentro del array.</p>
-{% else %}
-    <p>La letra {{ slug }} no está dentro del array.</p>
-{% endif %}
+{% extends 'base.html.twig' %}
+{% block body %}<h1>Artículo: {{ slug }}</h1><p>Detalle del artículo del blog {{ slug }}.</p>{% endblock %}

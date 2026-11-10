@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Agenda de contactos</h1>
+<ul>{% for contacto in contactos %}<li><a href="{{ path('app_contactos_show', {id: contacto.id}) }}">{{ contacto.nombre }}</a> · {{ contacto.telefono }} · {{ contacto.correo }}</li>{% endfor %}</ul>
+<h2>Nuevo contacto</h2><form action="{{ path('app_contactos_nuevo') }}" method="post">
+<label>Nombre <input name="nombre" required></label><label>Teléfono <input name="telefono" type="tel" required></label><label>Correo <input name="correo" type="email" required></label><button>Guardar contacto</button></form>
+<h2>Buscar por nombre</h2><form action="{{ path('app_contactos_buscar') }}" method="get"><label>Nombre <input name="nombre"></label><button>Buscar (JSON)</button></form>
+{% endblock %}

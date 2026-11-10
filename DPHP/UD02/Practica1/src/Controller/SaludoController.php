@@ -15,9 +15,9 @@ final class SaludoController extends AbstractController
             'controller_name' => 'SaludoController',
         ]);
     }
-    #[Route('/saludo/{name}', name: 'app_saludo')]
+    #[Route('/saludo/{name}', name: 'app_saludo_nombre')]
     public function saludo(string $name): Response
     {
-        return new Response('Saludos '. $name);
+        return new Response('Hola, '. htmlspecialchars($name, ENT_QUOTES, 'UTF-8'));
     }
 }

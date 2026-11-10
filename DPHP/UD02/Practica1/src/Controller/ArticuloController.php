@@ -18,6 +18,6 @@ final class ArticuloController extends AbstractController
     #[Route('/articulo/{id}', name: 'app_articulo_show' , requirements: ['id' => '\d+'])]
     public function articulo( int $id): Response
     {
-        return $this->render('articulo/index.html.twig', ['id' => $id]);
+        return $this->render('articulo/articulo.html.twig', ['id' => $id]);
     }
 }

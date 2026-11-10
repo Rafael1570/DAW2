@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>{{ libro.titulo }}</h1><p>Autor: {{ libro.autor }}</p><p>Categoría: {{ libro.categoria }}</p><a href="{{ path('app_libros_index') }}">Volver al catálogo</a>
+{% endblock %}

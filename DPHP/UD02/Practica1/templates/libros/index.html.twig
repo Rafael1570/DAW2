@@ -1,0 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Libros{% if categoria %}: {{ categoria }}{% endif %}</h1><nav><a href="{{ path('app_libros_index') }}">Todos</a> · <a href="{{ path('app_libros_categoria', {nombre: 'novela'}) }}">Novela</a> · <a href="{{ path('app_libros_categoria', {nombre: 'poesia'}) }}">Poesía</a></nav>
+<ul>{% for libro in libros %}<li><a href="{{ path('app_libros_show', {id: libro.id}) }}">{{ libro.titulo }}</a> · {{ libro.autor }} · {{ libro.categoria }}</li>{% else %}<li>No hay libros en esta categoría.</li>{% endfor %}</ul>
+{% endblock %}

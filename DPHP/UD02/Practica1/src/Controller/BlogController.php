@@ -35,7 +35,7 @@ final class BlogController extends AbstractController
         }
         return $this->render('blog/pagina.html.twig', ['resultadoArray' => $arrayResultado, 'pagina' => $pagina]);
     }
-    #[Route('/blog/{slug}', name: 'app_blog_slug', requirements: ['slug' => '[a-z0-9-]+'])]
+    #[Route('/blog/{slug}', name: 'app_blog_slug')]
     public function slug(string $slug): Response
     {
         $elemento = ["a", "b", "c"];
