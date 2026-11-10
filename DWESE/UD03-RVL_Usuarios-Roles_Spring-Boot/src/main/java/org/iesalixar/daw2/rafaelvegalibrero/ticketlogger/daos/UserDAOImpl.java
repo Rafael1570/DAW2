@@ -113,7 +113,6 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int delete(Long id) { return jdbc.update("DELETE FROM users WHERE id=?", id); }
 
-    // El servicio llama a este método en la misma transacción que el alta o edición del usuario.
     @Override
     public void replaceRoles(Long userId, Collection<Long> roleIds) {
         jdbc.update("DELETE FROM user_roles WHERE user_id=?", userId);
