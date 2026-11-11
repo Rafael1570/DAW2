@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.region-detail.title}, ~{::main})}">
+<body><main class="list-page"><div class="list-card">
+  <h1 th:text="#{msg.region-detail.title}"></h1>
+  <dl><dt>ID</dt><dd th:text="${region.id}"></dd><dt th:text="#{msg.region-form.code}"></dt><dd th:text="${region.code}"></dd><dt th:text="#{msg.region-form.name}"></dt><dd th:text="${region.name}"></dd></dl>
+  <h2 th:text="#{msg.region-detail.section.provinces}">Provincias</h2>
+  <table class="table"><thead><tr><th>ID</th><th th:text="#{msg.region-detail.field.code}"></th><th th:text="#{msg.region-detail.field.name}"></th><th th:text="#{msg.region-detail.provinces.col.actions}"></th></tr></thead>
+  <tbody><tr th:each="province : ${region.provinces}"><td th:text="${province.id}"></td><td th:text="${province.code}"></td><td th:text="${province.name}"></td><td><a th:href="@{/provinces/detail(id=${province.id})}" th:text="#{msg.province-list.viewDetail}"></a></td></tr></tbody></table>
+  <p th:if="${#lists.isEmpty(region.provinces)}" th:text="#{msg.region-detail.provinces.empty}"></p>
+  <a class="btn btn-secondary" th:href="@{/regions}" th:text="#{msg.region-form.returnback}"></a>
+</div></main></body></html>

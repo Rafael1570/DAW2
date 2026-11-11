@@ -1,0 +1,11 @@
+HELP.md
+.mvn/wrapper/maven-wrapper.jar
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.idea/workspace.xml
+.idea/shelf/
+*.iml
+.env
+
+*.log
+.idea/

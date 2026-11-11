@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.province-list.title}, ~{::main})}">
+<body>
+<main class="list-page">
+<div class="list-card">
+  <h1  th:text="#{msg.province-list.title}">Listado de Provincias</h1>
+  <a class="btn btn-success" th:href="@{/provinces/new}" th:text="#{msg.province-list.add}">Agregar Nueva Provincia</a>
+  <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+  <div class="table-responsive"><table class="table table-striped table-bordered">
+    <thead><tr><th th:attr="aria-sort=${sortField == 'id' ? (sortDir == 'asc' ? 'ascending' : 'descending') : 'none'}"><a th:href="@{/provinces(page=0,size=${pageSize},sortField='id',sortDir=${sortField == 'id' ? reverseSortDir : 'asc'})}"><span th:text="#{msg.province-list.id}"></span><span th:if="${sortField == 'id'}" th:text="${sortDir == 'asc' ? ' ▲' : ' ▼'}"></span></a></th><th th:attr="aria-sort=${sortField == 'code' ? (sortDir == 'asc' ? 'ascending' : 'descending') : 'none'}"><a th:href="@{/provinces(page=0,size=${pageSize},sortField='code',sortDir=${sortField == 'code' ? reverseSortDir : 'asc'})}"><span th:text="#{msg.province-list.code}"></span><span th:if="${sortField == 'code'}" th:text="${sortDir == 'asc' ? ' ▲' : ' ▼'}"></span></a></th><th th:attr="aria-sort=${sortField == 'name' ? (sortDir == 'asc' ? 'ascending' : 'descending') : 'none'}"><a th:href="@{/provinces(page=0,size=${pageSize},sortField='name',sortDir=${sortField == 'name' ? reverseSortDir : 'asc'})}"><span th:text="#{msg.province-list.name}"></span><span th:if="${sortField == 'name'}" th:text="${sortDir == 'asc' ? ' ▲' : ' ▼'}"></span></a></th><th th:attr="aria-sort=${sortField == 'regionName' ? (sortDir == 'asc' ? 'ascending' : 'descending') : 'none'}"><a th:href="@{/provinces(page=0,size=${pageSize},sortField='regionName',sortDir=${sortField == 'regionName' ? reverseSortDir : 'asc'})}"><span th:text="#{msg.province-list.region}"></span><span th:if="${sortField == 'regionName'}" th:text="${sortDir == 'asc' ? ' ▲' : ' ▼'}"></span></a></th><th  th:text="#{msg.province-list.actions}">Acciones</th></tr></thead>
+    <tbody><tr th:each="province : ${provinces}">
+      <td th:text="${province.id}"></td><td><span th:text="${province.code}"></span></td><td  th:text="${province.name}"></td><td th:text="${province.regionName}"></td>
+      <td ><a class="btn btn-detail btn-sm" th:href="@{/provinces/detail(id=${province.id})}" th:text="#{msg.province-list.viewDetail}">Ver detalle</a>
+          <a class="btn btn-primary btn-sm" th:href="@{/provinces/edit(id=${province.id})}" th:text="#{msg.province-list.edit}">Editar</a>
+        <form class="d-inline" method="post" th:action="@{/provinces/delete}" th:data-confirm="#{msg.province-list.confirm}"><input type="hidden" name="id" th:value="${province.id}"><button class="btn btn-danger btn-sm" type="submit" th:text="#{msg.province-list.delete}">Eliminar</button></form>
+      </td>
+    </tr><tr th:if="${#lists.isEmpty(provinces)}"><td colspan="5" class="text-center text-secondary py-5" th:text="#{msg.common.empty}">No hay datos.</td></tr></tbody>
+  </table></div>
+  <div class="d-flex flex-wrap gap-3 align-items-center justify-content-between mt-3">
+    <span th:text="#{msg.pagination.info(${currentPage + (totalPages > 0 ? 1 : 0)}, ${totalPages}, ${totalElements})}"></span>
+    <nav th:if="${totalPages > 0}" th:aria-label="#{msg.pagination.aria.label}">
+      <ul class="pagination mb-0">
+        <li class="page-item" th:classappend="${currentPage == 0} ? 'disabled'">
+          <a class="page-link" th:href="${currentPage > 0} ? @{/provinces(page=${currentPage - 1},size=${pageSize},sortField=${sortField},sortDir=${sortDir})} : null" th:attr="aria-disabled=${currentPage == 0}" th:aria-label="#{msg.pagination.prev}">&laquo;</a>
+        </li>
+        <li class="page-item" th:each="i : ${#numbers.sequence(0,totalPages - 1)}" th:classappend="${i == currentPage} ? 'active'">
+          <a class="page-link" th:href="@{/provinces(page=${i},size=${pageSize},sortField=${sortField},sortDir=${sortDir})}" th:text="${i + 1}" th:attr="aria-current=${i == currentPage ? 'page' : null}"></a>
+        </li>
+        <li class="page-item" th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+          <a class="page-link" th:href="${currentPage < totalPages - 1} ? @{/provinces(page=${currentPage + 1},size=${pageSize},sortField=${sortField},sortDir=${sortDir})} : null" th:attr="aria-disabled=${currentPage == totalPages - 1}" th:aria-label="#{msg.pagination.next}">&raquo;</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <a class="btn btn-secondary" th:href="@{/}" th:text="#{msg.nav.home}">Inicio</a>
+</div>
+</main>
+</body>
+</html>

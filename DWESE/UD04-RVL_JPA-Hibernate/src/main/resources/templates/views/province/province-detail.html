@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.province-detail.title}, ~{::main})}">
+<body><main class="list-page"><div class="list-card">
+  <h1 th:text="#{msg.province-detail.title}"></h1>
+  <dl><dt>ID</dt><dd th:text="${province.id}"></dd><dt th:text="#{msg.province-form.code}"></dt><dd th:text="${province.code}"></dd><dt th:text="#{msg.province-form.name}"></dt><dd th:text="${province.name}"></dd></dl>
+  <h2 th:text="#{msg.province-detail.section.region}"></h2><a th:href="@{/regions/detail(id=${province.region.id})}" th:text="${province.region.name}"></a>
+  <a class="btn btn-secondary" th:href="@{/provinces}" th:text="#{msg.province-form.returnback}"></a>
+</div></main></body></html>
