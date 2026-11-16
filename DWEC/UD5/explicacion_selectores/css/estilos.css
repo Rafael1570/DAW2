@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: #f3f6fb;
+    color: #253247;
+}
+
+h1 {
+    color: #174b89;
+}
+
+p {
+    font-size: 18px;
+}
+
+#grupo {
+    padding: 10px;
+    background-color: #e4eaf5;
+}
+
+.destacado {
+    color: darkred;
+    font-weight: bold;
+}
