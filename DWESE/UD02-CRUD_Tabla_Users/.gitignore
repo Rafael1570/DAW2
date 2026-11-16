@@ -42,5 +42,8 @@ build/
 .env
 .env.*
 !.env.example
+<<<<<<< Updated upstream
 .env.example
+=======
+>>>>>>> Stashed changes
 .env
