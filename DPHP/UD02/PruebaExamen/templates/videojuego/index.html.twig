@@ -1,0 +1,6 @@
+<h1>Lista de videojuegos</h1>
+<ul>
+    {% for id, nombre in videojuegos %}
+        <li>El juego con id-> {{ id }} es: {{ nombre }}</li>
+    {% endfor %}
+</ul>

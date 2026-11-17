@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ plato.nombre }}{% endblock %}
+
+{% block body %}
+    <h1>{{ plato.nombre }}</h1>
+    <p>Categoría: {{ plato.categoria }}</p>
+    <p>Precio: {{ plato.precio|number_format(2, ',', '.') }} €</p>
+    <p>Vegetariano: {{ plato.vegetariano }}</p>
+    <a href="{{ path('platos_lista') }}">Volver a la carta</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block body %}
+    <h1>{{ titulo }}</h1>
+    <ul>
+        {% for id, plato in platos %}
+            <li><a href="{{ path('platos_detalle', {id: id}) }}">{{ plato.nombre }}</a></li>
+        {% else %}
+            <li>No hay platos en esta categoría.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

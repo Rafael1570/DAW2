@@ -1,0 +1,9 @@
+<h1>Libros de {{ categoria }}</h1>
+
+<ul>
+    {% for id, libro in libros %}
+        <li>{{ id }} - {{ libro.titulo }}</li>
+    {% else %}
+        <li>No hay libros de esta categoría</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservas{% endblock %}
+
+{% block body %}
+    {% set meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'] %}
+    {% if dia is not null %}
+        <h1>Reserva para el {{ '%02d/%02d/%d'|format(dia, mes, anio) }}</h1>
+    {% elseif mes is not null %}
+        <h1>Reservas de {{ meses[mes - 1] }}… del mes {{ mes }} de {{ anio }}</h1>
+    {% else %}
+        <h1>Reservas de {{ anio }}</h1>
+    {% endif %}
+{% endblock %}
