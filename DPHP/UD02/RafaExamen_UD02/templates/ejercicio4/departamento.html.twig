@@ -1,0 +1,7 @@
+<ul>
+    {% for id, empleado in empleados %}
+        <li>{{ id }} - {{ empleado.nombre }}</li>
+    {% else %}
+        <li>No hay empleados de este departamento</li>
+    {% endfor %}
+</ul>

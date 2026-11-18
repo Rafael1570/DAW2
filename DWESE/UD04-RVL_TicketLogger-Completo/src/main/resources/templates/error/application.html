@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.error}, ~{::main})}">
+<body><main class="container py-4">
+<h1 th:text="#{msg.error}"></h1>
+<p class="alert alert-danger" th:text="${#messages.msg(errorKey)}"></p><a class="btn btn-secondary" th:href="@{/}" th:text="#{msg.back}"></a>
+</main></body></html>

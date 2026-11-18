@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.userDetail}, ~{::main})}">
+<body><main class="list-page"><div class="list-card">
+<h1 th:text="#{msg.userDetail}"></h1><dl class="row text-start"><dt class="col-sm-4">ID</dt><dd class="col-sm-8" th:text="${user.id}"></dd>
+<dt class="col-sm-4">Email</dt><dd class="col-sm-8" th:text="${user.email}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.lastPasswordChange}"></dt><dd class="col-sm-8" th:text="${user.lastPasswordChange==null ? '-' : #temporals.format(user.lastPasswordChange,'dd/MM/yyyy HH:mm')}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.passwordExpiresAt}"></dt><dd class="col-sm-8" th:text="${user.passwordExpiresAt==null ? '-' : #temporals.format(user.passwordExpiresAt,'dd/MM/yyyy HH:mm')}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.failedLoginAttempts}"></dt><dd class="col-sm-8" th:text="${user.failedLoginAttempts}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.active}"></dt><dd class="col-sm-8" th:text="${user.active} ? #{msg.yes} : #{msg.no}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.accountNonLocked}"></dt><dd class="col-sm-8" th:text="${user.accountNonLocked} ? #{msg.yes} : #{msg.no}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.emailVerified}"></dt><dd class="col-sm-8" th:text="${user.emailVerified} ? #{msg.yes} : #{msg.no}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user.mustChangePassword}"></dt><dd class="col-sm-8" th:text="${user.mustChangePassword} ? #{msg.yes} : #{msg.no}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user-detail.field.roles}"></dt><dd class="col-sm-8"><ul class="mb-0" th:if="${!#lists.isEmpty(user.roles)}"><li th:each="roleName:${user.roles}" th:text="${roleName}"></li></ul><span th:if="${#lists.isEmpty(user.roles)}" class="text-muted" th:text="#{msg.user-detail.field.roles.empty}"></span></dd></dl>
+<hr><h2 class="h5" th:text="#{msg.user-detail.section.profileData}"></h2>
+<p th:if="${user.firstName==null}" class="text-muted" th:text="#{msg.user-detail.profile.empty}"></p>
+<div th:if="${user.firstName!=null}"><img th:if="${user.profileImage!=null}" th:src="@{${user.profileImage}}" class="img-thumbnail rounded-circle profile-picture mb-3" th:alt="#{msg.user-detail.profile.field.profileImage}"><span th:if="${user.profileImage==null}" class="text-muted" th:text="#{msg.user-detail.profile.noImage}"></span><dl class="row text-start"><dt class="col-sm-4" th:text="#{msg.user-detail.profile.field.firstName}"></dt><dd class="col-sm-8" th:text="${user.firstName}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user-detail.profile.field.lastName}"></dt><dd class="col-sm-8" th:text="${user.lastName}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user-detail.profile.field.phoneNumber}"></dt><dd class="col-sm-8" th:text="${user.phoneNumber}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user-detail.profile.field.locale}"></dt><dd class="col-sm-8" th:text="${user.locale}"></dd>
+<dt class="col-sm-4" th:text="#{msg.user-detail.profile.field.bio}"></dt><dd class="col-sm-8" th:text="${user.bio}"></dd>
+</dl></div>
+<a class="btn btn-primary" th:href="@{/users/edit(id=${user.id})}" th:text="#{msg.edit}"></a> <a class="btn btn-secondary" th:href="@{/users}" th:text="#{msg.back}"></a>
+</div></main></body></html>

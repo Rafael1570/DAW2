@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.users}, ~{::main})}">
+<body><main class="list-page"><div class="list-card">
+<h1 th:text="#{msg.users}"></h1>
+<div class="alert alert-success" th:if="${successMessage}" th:text="${successMessage}"></div>
+<div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+<a class="btn btn-success mb-3" th:href="@{/users/new}" th:text="#{msg.newUser}"></a>
+<div class="table-responsive"><table class="table table-striped table-bordered"><thead><tr><th><a th:href="@{/users(page=0,size=${pageSize},sortField='id',sortDir=${sortField=='id' ? reverseSortDir : 'asc'})}">ID</a> <span th:if="${sortField=='id'}" th:text="${sortDir=='asc'} ? '▲' : '▼'"></span></th><th><a th:href="@{/users(page=0,size=${pageSize},sortField='email',sortDir=${sortField=='email' ? reverseSortDir : 'asc'})}">Email</a> <span th:if="${sortField=='email'}" th:text="${sortDir=='asc'} ? '▲' : '▼'"></span></th><th><a th:href="@{/users(page=0,size=${pageSize},sortField='active',sortDir=${sortField=='active' ? reverseSortDir : 'asc'})}" th:text="#{msg.active}">Activo</a> <span th:if="${sortField=='active'}" th:text="${sortDir=='asc'} ? '▲' : '▼'"></span></th><th th:text="#{msg.user-list.col.roles}">Roles</th><th th:text="#{msg.actions}"></th></tr></thead>
+<tbody><tr th:each="user:${users}"><td th:text="${user.id}"></td><td th:text="${user.email}"></td><td th:text="${user.active} ? #{msg.yes} : #{msg.no}"></td><td th:text="${#lists.isEmpty(user.roles)} ? '-' : ${#strings.listJoin(user.roles, ', ')}"></td>
+<td class="text-nowrap"><a class="btn btn-sm btn-secondary" th:href="@{/users/detail(id=${user.id})}" th:text="#{msg.detail}"></a> <a class="btn btn-sm btn-primary" th:href="@{/users/edit(id=${user.id})}" th:text="#{msg.edit}"></a>
+<form class="d-inline" method="post" th:action="@{/users/delete}"><input type="hidden" name="id" th:value="${user.id}"><button class="btn btn-sm btn-danger" th:text="#{msg.delete}"></button></form></td></tr>
+<tr th:if="${#lists.isEmpty(users)}"><td colspan="5" th:text="#{msg.empty}"></td></tr></tbody></table></div>
+<form method="get" th:action="@{/users}" class="d-flex align-items-center gap-2 mt-3">
+<label for="pageSize" th:text="#{msg.rowsPerPage}"></label><select id="pageSize" name="size" class="form-select form-select-sm w-auto" onchange="this.form.submit()"><option th:each="n:${ {5,10,25,50} }" th:value="${n}" th:text="${n}" th:selected="${n==pageSize}"></option></select>
+<input type="hidden" name="sortField" th:value="${sortField}"><input type="hidden" name="sortDir" th:value="${sortDir}"></form>
+<div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2" th:if="${totalPages>0}">
+<div th:text="#{msg.pagination.info(${currentPage+1},${totalPages},${totalElements})}"></div>
+<nav th:aria-label="#{msg.pagination.aria.label}"><ul class="pagination mb-0">
+<li class="page-item" th:classappend="${currentPage==0} ? 'disabled'"><a class="page-link" th:href="@{/users(page=${currentPage-1},size=${pageSize},sortField=${sortField},sortDir=${sortDir})}" th:aria-label="#{msg.pagination.prev}"><span aria-hidden="true">&laquo;</span></a></li>
+<li class="page-item" th:each="i:${#numbers.sequence(0,totalPages-1)}" th:classappend="${i==currentPage} ? 'active'"><a class="page-link" th:text="${i+1}" th:href="@{/users(page=${i},size=${pageSize},sortField=${sortField},sortDir=${sortDir})}"></a></li>
+<li class="page-item" th:classappend="${currentPage==totalPages-1} ? 'disabled'"><a class="page-link" th:href="@{/users(page=${currentPage+1},size=${pageSize},sortField=${sortField},sortDir=${sortDir})}" th:aria-label="#{msg.pagination.next}"><span aria-hidden="true">&raquo;</span></a></li>
+</ul></nav></div>
+</div></main></body></html>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.userForm}, ~{::main})}">
+<body><main class="form-page"><div class="form-card">
+<h1 th:text="#{msg.userForm}"></h1>
+<div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+<form method="post" th:object="${user}" th:action="${user.id==null} ? @{/users/insert} : @{/users/update}">
+<input type="hidden" th:field="*{id}">
+<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"><ul><li th:each="err:${#fields.allErrors()}" th:text="${err}"></li></ul></div>
+<div class="mb-3"><label for="email" class="form-label">Email</label><input id="email" type="email" th:field="*{email}" class="form-control" maxlength="100" required></div>
+<div class="mb-3"><label for="passwordHash" class="form-label" th:text="#{msg.password}"></label><input id="passwordHash" type="password" name="passwordHash" autocomplete="new-password" class="form-control" maxlength="72" th:required="${user.id==null}"><p class="form-text" th:if="${user.id!=null}" th:text="#{msg.passwordKeep}"></p></div>
+<div class="mb-3"><label for="lastPasswordChange" class="form-label" th:text="#{msg.user.lastPasswordChange}"></label><input class="form-control" id="lastPasswordChange" type="datetime-local" th:field="*{lastPasswordChange}"><div class="text-danger" th:errors="*{lastPasswordChange}"></div></div>
+<div class="mb-3"><label for="failedLoginAttempts" class="form-label" th:text="#{msg.user.failedLoginAttempts}"></label><input class="form-control" id="failedLoginAttempts" type="number" th:field="*{failedLoginAttempts}" min="0" step="1"><div class="text-danger" th:errors="*{failedLoginAttempts}"></div></div>
+<div class="form-check text-start mb-2"><input id="active" class="form-check-input" type="checkbox" th:field="*{active}"><label for="active" class="form-check-label" th:text="#{msg.user.active}"></label></div>
+<div class="form-check text-start mb-2"><input id="accountNonLocked" class="form-check-input" type="checkbox" th:field="*{accountNonLocked}"><label for="accountNonLocked" class="form-check-label" th:text="#{msg.user.accountNonLocked}"></label></div>
+<div class="form-check text-start mb-2"><input id="emailVerified" class="form-check-input" type="checkbox" th:field="*{emailVerified}"><label for="emailVerified" class="form-check-label" th:text="#{msg.user.emailVerified}"></label></div>
+<div class="form-check text-start mb-2"><input id="mustChangePassword" class="form-check-input" type="checkbox" th:field="*{mustChangePassword}"><label for="mustChangePassword" class="form-check-label" th:text="#{msg.user.mustChangePassword}"></label></div>
+<p class="text-muted small" th:text="#{msg.user.expirationHelp}"></p>
+<div class="mb-3"><label for="roles" class="form-label" th:text="#{msg.user-form.roles}"></label><select id="roles" multiple required th:field="*{roleIds}" class="form-select"><option th:each="role:${allRoles}" th:value="${role.id}" th:text="${role.displayName + ' (' + role.name + ')'}"></option></select><p class="form-text" th:text="#{msg.user-form.roles.help}"></p></div>
+<button class="btn btn-primary" th:text="#{msg.save}"></button><a class="btn btn-secondary" th:href="@{/users}" th:text="#{msg.back}"></a>
+</form></div></main></body></html>

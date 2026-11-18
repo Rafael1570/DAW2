@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.roles}, ~{::main})}">
+<body><main class="container py-4"><h1 th:text="#{msg.roles}"></h1>
+<div class="alert alert-danger" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+<a class="btn btn-primary my-3" th:href="@{/roles/new}" th:text="#{msg.newRole}"></a>
+<div class="table-responsive"><table class="table table-striped"><thead><tr><th>ID</th><th th:text="#{msg.roleName}"></th><th th:text="#{msg.displayName}"></th><th th:text="#{msg.description}"></th><th th:text="#{msg.actions}"></th></tr></thead>
+<tbody><tr th:each="role:${roles}"><td th:text="${role.id}"></td><td th:text="${role.name}"></td><td th:text="${role.displayName}"></td><td th:text="${role.description}"></td><td class="actions">
+<a class="btn btn-sm btn-outline-primary" th:href="@{/roles/detail(id=${role.id})}" th:text="#{msg.detail}"></a>
+<a class="btn btn-sm btn-outline-secondary" th:href="@{/roles/edit(id=${role.id})}" th:text="#{msg.edit}"></a>
+<form method="post" th:action="@{/roles/delete}"><input type="hidden" name="id" th:value="${role.id}"><button class="btn btn-sm btn-outline-danger" th:text="#{msg.delete}"></button></form>
+</td></tr></tbody></table></div>
+</main></body></html>

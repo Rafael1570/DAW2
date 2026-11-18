@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" th:replace="~{index :: layout(#{msg.roleForm}, ~{::main})}">
+<body><main class="container py-4"><h1 th:text="#{msg.roleForm}"></h1>
+<form method="post" th:object="${role}" th:action="${role.id==null} ? @{/roles/insert} : @{/roles/update}" class="form-card">
+<input type="hidden" th:field="*{id}">
+<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}"><ul><li th:each="err:${#fields.allErrors()}" th:text="${err}"></li></ul></div>
+<div class="mb-3"><label for="name" class="form-label" th:text="#{msg.roleName}"></label><input id="name" th:field="*{name}" class="form-control" placeholder="ROLE_EDITOR" pattern="ROLE_[A-Z_]+" maxlength="50" required></div>
+<div class="mb-3"><label for="displayName" class="form-label" th:text="#{msg.displayName}"></label><input id="displayName" th:field="*{displayName}" class="form-control" maxlength="100" required></div>
+<div class="mb-3"><label for="description" class="form-label" th:text="#{msg.description}"></label><textarea id="description" th:field="*{description}" class="form-control" maxlength="255"></textarea></div>
+<button class="btn btn-primary" th:text="#{msg.save}"></button><a class="btn btn-secondary" th:href="@{/roles}" th:text="#{msg.back}"></a></form>
+</main></body></html>

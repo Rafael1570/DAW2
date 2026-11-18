@@ -1,0 +1,9 @@
+HELP.md
+/target/
+.idea/
+*.iml
+.env
+*.log
+uploads/
+
+dwese-ticket-logger-images/
