@@ -1,21 +1,49 @@
 services:
   db:
-    image: mariadb:11.4
-    restart: unless-stopped
+    image: mariadb:latest
     environment:
       MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       MARIADB_DATABASE: ${DB_DATABASE}
       MARIADB_USER: ${DB_USER}
       MARIADB_PASSWORD: ${DB_PASSWORD}
     ports:
-      - "${DB_PORT:-3311}:3306"
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
       timeout: 5s
-      retries: 12
-      start_period: 10s
+      retries: 20
+      start_period: 30s
+
+  ticket-logger-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ticket-logger-app
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
     volumes:
-      - db_data:/var/lib/mysql
+      - app_uploads:/app/uploads
+
+  proxy:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: ticket-logger-proxy
+    depends_on:
+      - ticket-logger-app
+    ports:
+      - "8081:80"
+      - "443:443"
+    volumes:
+      - certs:/etc/nginx/certs
+
 volumes:
   db_data:
+  app_uploads:
+  certs:
