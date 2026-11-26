@@ -6,10 +6,10 @@ class Pelicula{
     #edadMinima
     constructor(codigo,genero,titulo,anio,edadMinima){
         this.#codigo = codigo;
-        this.#genero = ["acción", "comedia", "terror"];
+        this.#genero = genero;
         this.#titulo= titulo;
         this.#anio= anio;
-        this.#edadMinima = edadMinima;
+        this.edadMinima = edadMinima;
     }
     get codigo(){
         return this.#codigo;
@@ -39,7 +39,7 @@ class Pelicula{
     }
     esAntigua(){
         let fechaActual = new Date();
-        let anioActual = fechaActual.getFullYear;
+        let anioActual = fechaActual.getFullYear();
         let anioPeli = this.#anio;
         let esAntigua = anioActual - anioPeli;
         if(esAntigua>20){
@@ -60,24 +60,37 @@ class Espectador{
     constructor(nombre, edad){
         this.nombre = nombre;
         this.edad = edad;
-        this.peliculasReservada = null;
+        this.peliculaReservada = null;
     }
     reservarPelicula(pelicula){
         if(pelicula instanceof Pelicula){
-            this.peliculasReservada = pelicula;
+            this.peliculaReservada = pelicula;
         }else {
             throw new Error("No es una pelicula valida");
         }
     }
     puedeVer(){
-        if(edad >= this.peliculaReservada.edadMinima){
-            return true;
-        }else{
-            return false;
+        if(this.peliculaReservada !== null){
+            if(this.edad >= this.peliculaReservada.edadMinima){
+                return true;
+            }
         }
+        return false;
     }
     mostrarResumen(){
-        console.log(this.nombre, this.edad, this.peliculaReservada.mostrarInfo, Espectador.puedeVer)
+        console.log(this.nombre, this.edad);
+
+        if (this.peliculaReservada !== null) {
+            this.peliculaReservada.mostrarInfo();
+
+            if (this.puedeVer()) {
+                console.log("Puede ver la película");
+            } else {
+                console.log("No puede ver la película");
+            }
+        } else {
+            console.log("No tiene ninguna película reservada");
+        }
     }
 }
 class Cartelera{
@@ -89,7 +102,7 @@ class Cartelera{
     }
     mostrarCartelera(){
         for (const pelicula of this.peliculas) {
-            console.log(pelicula.mostrarInfo);
+            pelicula.mostrarInfo();
         }
     }
     peliculasPorEdad(minEdad){
@@ -99,22 +112,27 @@ class Cartelera{
                 arrayFiltrado.push(pelicula);
             }
         }
+        return arrayFiltrado;
     }
     buscarPelicula(codigo){
         for (const pelicula of this.peliculas) {
             if(codigo === pelicula.codigo){
-                console.log(pelicula.mostrarInfo);
-            }else {
-                return null;
+                return pelicula;
+            }
+        }
+        return null;
+    }
+    eliminarPelicula(codigo) {
+      
+        // Hay que localizar la posición de la película y eliminarla.
+
+        for (let i = 0; i < this.peliculas.length; i++) {
+            if (this.peliculas[i].codigo === codigo) {
+                this.peliculas.splice(i, 1);
+                return;
             }
         }
     }
-    /*eliminarPelicula(codigo){
-        for (const pelicula of this.peliculas) {
-            if(codigo === pelicula.codigo){
-            }
-        }
-    }*/
 }
 //Crear Peliculas
 let pelicula1 = new Pelicula("PL101", "Ciencia ficción", "Matrix", 1999, 13);
@@ -123,8 +141,8 @@ let pelicula3 = new Pelicula("PL103", "Comedia", "Un verano loco", 2019, 7);
 //Crear Espectadores
 let espectador1 = new Espectador("Ana García", 20);
 let espectador2 = new Espectador("Luis Pérez", 15);
-//Crear Cartelera Megaocio y añadir las peliculas
-let cartelera1 = new Cartelera("Megaocio");
+//Crear Cartelera  y añadir las peliculas
+let cartelera1 = new Cartelera();
 cartelera1.agregarPelicula(pelicula1);
 cartelera1.agregarPelicula(pelicula2);
 cartelera1.agregarPelicula(pelicula3);
@@ -137,15 +155,33 @@ cartelera1.mostrarCartelera();
 espectador1.mostrarResumen();
 espectador2.mostrarResumen();
 //utilizar peliculasporedad(16)
-cartelera1.peliculasPorEdad(16);
+let peliculasFiltradas = cartelera1.peliculasPorEdad(16);
+for (const pelicula of peliculasFiltradas) {
+    pelicula.mostrarInfo();
+}
 //buscar pelicula por codigo
-cartelera1.buscarPelicula("PL101");
-cartelera1.buscarPelicula("PL105");
+//No recoge ni muestra los resultados de las búsquedas.
+let peliculaEncontrada = cartelera1.buscarPelicula("PL101");
+
+if (peliculaEncontrada !== null) {
+    peliculaEncontrada.mostrarInfo();
+} else {
+    console.log("Película no encontrada");
+}
+
+peliculaEncontrada = cartelera1.buscarPelicula("PL105");
+
+if (peliculaEncontrada !== null) {
+    peliculaEncontrada.mostrarInfo();
+} else {
+    console.log("Película no encontrada");
+}
+
 //eliminar una pelicula
-//cartelera1.eliminarPelicula("PL101");
-//cartelera1.mostrarCartelera();
+cartelera1.eliminarPelicula("PL101");
+cartelera1.mostrarCartelera();
 //comprobar esAntigua() y esParaAdultos()
-pelicula2.esAntigua();
-pelicula2.esParaAdultos();
+console.log(pelicula2.esAntigua());
+console.log(pelicula2.esParaAdultos());
 //cambiar datos
 pelicula1.edadMinima = 120;
