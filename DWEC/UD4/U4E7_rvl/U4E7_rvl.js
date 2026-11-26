@@ -65,7 +65,7 @@ class Bus{
     asignarConductor(conductor){
         if(conductor instanceof Conductor){
             this.#conductor = conductor;
-            console.log(`${conductor.nombre} con número de licencia ${conductor.numeroLicencia} ha sido asignado.`);
+            console.log(`${conductor.nombre} con número de licencia ${conductor.licencia} ha sido asignado.`); 
         }else {
             throw new Error("El objeto no es un conductor valido");
         }

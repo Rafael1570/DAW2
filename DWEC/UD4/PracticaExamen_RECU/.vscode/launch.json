@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Ejecutar JavaScript del proyecto",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "${env:ProgramFiles}/nodejs/node.exe",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "console": "integratedTerminal",
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}
