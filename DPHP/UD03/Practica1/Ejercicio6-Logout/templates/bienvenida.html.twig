@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Bienvenido, {{ username }}{% endblock %}
+
+{% block contenido %}
+    <form action="{{ path('app_logout') }}" method="post">
+        <input type="hidden" name="_token" value="{{ csrf_token('logout') }}">
+        <button type="submit">Cerrar sesión</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Iniciar sesión{% endblock %}
+
+{% block contenido %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

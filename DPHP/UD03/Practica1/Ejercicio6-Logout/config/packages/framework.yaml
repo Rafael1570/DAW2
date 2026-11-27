@@ -1,0 +1,10 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    session:
+        name: practica1_ejercicio6
+        save_path: '%kernel.project_dir%/var/sessions'
+        cookie_samesite: lax
+        cookie_secure: auto
+    csrf_protection: true
+    validation:
+        email_validation_mode: html5

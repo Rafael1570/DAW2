@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Registro de usuario{% endblock %}
+
+{% block contenido %}
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <p><a href="{{ path('app_login') }}">Volver al inicio de sesión</a></p>
+{% endblock %}

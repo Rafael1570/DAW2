@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ app.request.basePath }}/estilos.css">
+</head>
+<body>
+    <main>
+        <article aria-labelledby="titulo">
+            <h1 id="titulo">{{ block('titulo') }}</h1>
+            {% block contenido %}{% endblock %}
+        </article>
+    </main>
+</body>
+</html>

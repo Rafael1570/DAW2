@@ -1,0 +1,56 @@
+* { box-sizing: border-box; }
+:root {
+    color-scheme: light;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    color: #192b2a;
+    background: #edf3ef;
+}
+body { margin: 0; }
+main { max-width: 42rem; margin: 3rem auto; padding: 0 1rem; }
+article {
+    padding: clamp(1.25rem, 5vw, 2.5rem);
+    border: 1px solid #d0dfd7;
+    border-top: .35rem solid #176650;
+    border-radius: .8rem;
+    background: #fff;
+    box-shadow: 0 .5rem 1.5rem #19372b0d;
+}
+h1 { margin: 0 0 1.25rem; font-size: clamp(1.75rem, 5vw, 2.25rem); line-height: 1.15; }
+h2 { margin: 1.5rem 0 .75rem; font-size: 1.2rem; }
+p { margin: .75rem 0; }
+form > div > div, form > div > button, form > div > label { margin-bottom: .85rem; }
+label { display: inline-block; margin-bottom: .25rem; font-weight: 600; }
+input:not([type=checkbox]), select, textarea {
+    display: block;
+    width: 100%;
+    padding: .55rem .7rem;
+    border: 1px solid #81948d;
+    border-radius: .35rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+input[type=checkbox] { width: 1rem; height: 1rem; vertical-align: middle; accent-color: #176650; }
+textarea { min-height: 7rem; resize: vertical; }
+button, .boton {
+    display: inline-block;
+    padding: .55rem .9rem;
+    border: 1px solid #176650;
+    border-radius: .35rem;
+    background: #176650;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+}
+a { color: #176650; }
+:focus-visible { outline: .2rem solid #ab6a08; outline-offset: .15rem; }
+.aviso { margin: 0 0 1rem; padding: .65rem .85rem; border-radius: .35rem; background: #e0f2e7; color: #145542; }
+.error, form ul { color: #9c2e2e; }
+form ul { margin: 0 0 .35rem; padding-left: 1.2rem; }
+dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .4rem 1rem; }
+dt { font-weight: 650; }
+dd { margin: 0; overflow-wrap: anywhere; }
+.acciones { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1rem; margin-top: 1rem; }

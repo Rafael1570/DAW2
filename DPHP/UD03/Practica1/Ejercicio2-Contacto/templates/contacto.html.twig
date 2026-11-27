@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Formulario de contacto{% endblock %}
+
+{% block contenido %}
+    {% for mensaje in app.flashes('success') %}
+        <p class="aviso" role="status">{{ mensaje }}</p>
+    {% endfor %}
+
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit">Enviar mensaje</button>
+    {{ form_end(form) }}
+{% endblock %}

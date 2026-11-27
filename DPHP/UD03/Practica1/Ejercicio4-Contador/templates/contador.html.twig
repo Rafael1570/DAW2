@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Contador de visitas{% endblock %}
+
+{% block contenido %}
+    {% if visitas == 1 %}
+        <p>Has visitado esta página <strong>1 vez</strong>.</p>
+    {% else %}
+        <p>Has visitado esta página <strong>{{ visitas }} veces</strong>.</p>
+    {% endif %}
+    <a class="boton" href="{{ path('app_contador_reiniciar') }}">Reiniciar contador</a>
+{% endblock %}

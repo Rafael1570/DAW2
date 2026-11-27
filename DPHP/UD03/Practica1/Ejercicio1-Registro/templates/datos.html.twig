@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Datos recibidos{% endblock %}
+
+{% block contenido %}
+    <dl>
+        <dt>Nombre</dt><dd>{{ datos.nombre }}</dd>
+        <dt>Correo electrónico</dt><dd>{{ datos.email }}</dd>
+        <dt>Contraseña</dt><dd>{{ datos.password }}</dd>
+        <dt>Edad</dt><dd>{{ datos.edad }}</dd>
+        <dt>Fecha de nacimiento</dt><dd>{{ datos.fecha_nacimiento|date('d/m/Y') }}</dd>
+        <dt>Género</dt><dd>{{ {'f': 'Mujer', 'm': 'Hombre', 'o': 'Otro'}[datos.genero] }}</dd>
+        <dt>Acepta las condiciones</dt><dd>{{ datos.acepta_condiciones ? 'Sí' : 'No' }}</dd>
+    </dl>
+    <a href="{{ path('app_registro') }}">Volver al registro</a>
+{% endblock %}

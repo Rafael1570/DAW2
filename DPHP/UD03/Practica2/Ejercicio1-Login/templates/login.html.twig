@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Iniciar sesión{% endblock %}
+
+{% block contenido %}
+    {% for mensaje in app.flashes('success') %}
+        <p class="aviso" role="status">{{ mensaje }}</p>
+    {% endfor %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+    <p><a href="{{ path('app_registro') }}">Crear una cuenta</a></p>
+{% endblock %}

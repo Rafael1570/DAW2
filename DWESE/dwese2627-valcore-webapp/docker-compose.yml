@@ -1,0 +1,22 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: valcore-mariadb-josemaria
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_password}
+      MARIADB_DATABASE: ${DB_DATABASE:-valcore-webapp}
+      MARIADB_USER: ${DB_USER:-valcore_user}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-valcore_password}
+    ports:
+      - "${DB_PORT:-3308}:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  mariadb_data:

@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Controller\:
+        resource: '../src/Controller/'
+
+    App\Form\:
+        resource: '../src/Form/'
+
+    App\Service\:
+        resource: '../src/Service/'

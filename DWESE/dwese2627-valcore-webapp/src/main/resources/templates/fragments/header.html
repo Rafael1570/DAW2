@@ -1,0 +1,57 @@
+<header th:fragment="header" class="border-bottom bg-light" xmlns:th="http://www.thymeleaf.org">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+                <img th:src="@{/images/logo.png}" alt="Valcore" width="36" height="32" class="me-2">
+                <span class="fw-semibold text-primary">Valcore</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu" aria-controls="navbarMenu"
+                    aria-expanded="false" aria-label="Toggle navigation"
+                    th:attr="aria-label=#{msg.header.toggle}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}"
+                           th:text="#{msg.header.home}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/participations}"
+                           th:text="#{msg.header.participations}">Participaciones</a>
+                    </li>
+                </ul>
+
+                <div class="d-lg-flex align-items-center me-3">
+                    <label for="langSelect" class="visually-hidden"
+                           th:text="#{msg.header.language}">Idioma</label>
+                    <select id="langSelect" name="lang" class="form-select form-select-sm">
+                        <option value="es" th:selected="${#locale.language == 'es'}">Español</option>
+                        <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+                    </select>
+                </div>
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <img th:src="@{/images/avatar.svg}" alt="josemaria" width="40" height="40"
+                             class="rounded-circle border border-2 border-primary-subtle">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                        <li><span class="dropdown-item-text">josemaria</span></li>
+                        <li><a class="dropdown-item" th:href="@{/profile/edit}"
+                               th:text="#{msg.header.edit-profile}">Editar perfil</a></li>
+                        <li><a class="dropdown-item" th:href="@{/profile/change-password}"
+                               th:text="#{msg.header.change-password}">Cambiar contraseña</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" th:href="@{/logout}"
+                               th:text="#{msg.header.logout}">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

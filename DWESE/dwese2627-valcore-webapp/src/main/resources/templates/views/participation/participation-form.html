@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(${participation.id == null} ? #{msg.participation-form.add} : #{msg.participation-form.edit})}"></head>
+<body class="d-flex flex-column h-100">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div class="content-wrapper">
+    <main class="form-page">
+        <section class="form-card">
+            <h1 th:text="${participation.id == null} ? #{msg.participation-form.add} : #{msg.participation-form.edit}">
+                Agregar nueva participación
+            </h1>
+            <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+
+            <!--/* Alta y edición comparten la plantilla. El ID indica qué operación recibirá el formulario. */-->
+            <form th:action="${participation.id == null} ? @{/participations/insert} : @{/participations/update}"
+                  th:object="${participation}" method="post" class="mt-3">
+                <input type="hidden" th:field="*{id}">
+
+                <!-- Partida -->
+                <div class="mb-3">
+                    <label for="matchId" class="form-label" th:text="#{msg.participation-form.matchId}">
+                        Identificador de la partida
+                    </label>
+                    <input type="text" th:field="*{matchId}" id="matchId" class="form-control"
+                           maxlength="64" placeholder="b7e2d1c0-0001-4a5b-8c9d-0e1f2a3b4c01">
+                    <div th:if="${#fields.hasErrors('matchId')}" class="text-danger"
+                         th:errors="*{matchId}"></div>
+                </div>
+
+                <!-- Jugador: entidad relacionada (lado 1 de la relación 1:N) -->
+                <div class="mb-3">
+                    <label for="playerPuuid" class="form-label" th:text="#{msg.participation-form.player}">
+                        Jugador
+                    </label>
+                    <select id="playerPuuid" class="form-select" th:field="*{playerPuuid}">
+                        <option value="" th:text="#{msg.participation-form.player.select}">
+                            -- Selecciona un jugador --
+                        </option>
+                        <option th:each="pl : ${listPlayers}" th:value="${pl.puuid}"
+                                th:text="${pl.currentRank != null}
+                                         ? |${pl.riotId} · ${pl.currentRank}|
+                                         : |${pl.riotId} · #{msg.participation-form.player.unranked}|"></option>
+                    </select>
+                    <!-- Errores asociados al jugador (NotBlank en playerPuuid del DTO) -->
+                    <div class="text-danger" th:if="${#fields.hasErrors('playerPuuid')}"
+                         th:errors="*{playerPuuid}"></div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <!-- Equipo (codificable) -->
+                    <div class="col-sm-6">
+                        <label for="team" class="form-label" th:text="#{msg.participation-form.team}">Equipo</label>
+                        <select id="team" class="form-select" th:field="*{team}">
+                            <option value="" th:text="#{msg.participation-form.team.select}">-- Selecciona --</option>
+                            <option value="RED" th:text="#{msg.participation.team.RED}">Rojo</option>
+                            <option value="BLUE" th:text="#{msg.participation.team.BLUE}">Azul</option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('team')}" th:errors="*{team}"></div>
+                    </div>
+
+                    <!-- Resultado (codificable) -->
+                    <div class="col-sm-6">
+                        <label for="result" class="form-label" th:text="#{msg.participation-form.result}">Resultado</label>
+                        <select id="result" class="form-select" th:field="*{result}">
+                            <option value="" th:text="#{msg.participation-form.result.select}">-- Selecciona --</option>
+                            <option value="VICTORY" th:text="#{msg.participation.result.VICTORY}">Victoria</option>
+                            <option value="DEFEAT" th:text="#{msg.participation.result.DEFEAT}">Derrota</option>
+                            <option value="DRAW" th:text="#{msg.participation.result.DRAW}">Empate</option>
+                        </select>
+                        <div class="text-danger" th:if="${#fields.hasErrors('result')}" th:errors="*{result}"></div>
+                    </div>
+                </div>
+
+                <!-- Bajas / Muertes / Asistencias -->
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-4">
+                        <label for="kills" class="form-label" th:text="#{msg.participation-form.kills}">Bajas</label>
+                        <input type="number" min="0" th:field="*{kills}" id="kills" class="form-control">
+                        <div th:if="${#fields.hasErrors('kills')}" class="text-danger" th:errors="*{kills}"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="deaths" class="form-label" th:text="#{msg.participation-form.deaths}">Muertes</label>
+                        <input type="number" min="0" th:field="*{deaths}" id="deaths" class="form-control">
+                        <div th:if="${#fields.hasErrors('deaths')}" class="text-danger" th:errors="*{deaths}"></div>
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="assists" class="form-label" th:text="#{msg.participation-form.assists}">Asistencias</label>
+                        <input type="number" min="0" th:field="*{assists}" id="assists" class="form-control">
+                        <div th:if="${#fields.hasErrors('assists')}" class="text-danger" th:errors="*{assists}"></div>
+                    </div>
+                </div>
+
+                <!-- Puntuación / Rondas -->
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="totalScore" class="form-label" th:text="#{msg.participation-form.totalScore}">
+                            Puntuación total
+                        </label>
+                        <input type="number" min="0" th:field="*{totalScore}" id="totalScore" class="form-control">
+                        <div th:if="${#fields.hasErrors('totalScore')}" class="text-danger" th:errors="*{totalScore}"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="roundsPlayed" class="form-label" th:text="#{msg.participation-form.roundsPlayed}">
+                            Rondas jugadas
+                        </label>
+                        <input type="number" min="1" max="50" th:field="*{roundsPlayed}" id="roundsPlayed" class="form-control">
+                        <div th:if="${#fields.hasErrors('roundsPlayed')}" class="text-danger" th:errors="*{roundsPlayed}"></div>
+                    </div>
+                </div>
+
+                <!-- Impactos -->
+                <div class="row g-3 mb-3">
+                    <div class="col-sm-6">
+                        <label for="headshots" class="form-label" th:text="#{msg.participation-form.headshots}">
+                            Impactos en la cabeza
+                        </label>
+                        <input type="number" min="0" th:field="*{headshots}" id="headshots" class="form-control">
+                        <div th:if="${#fields.hasErrors('headshots')}" class="text-danger" th:errors="*{headshots}"></div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="totalHits" class="form-label" th:text="#{msg.participation-form.totalHits}">
+                            Impactos totales
+                        </label>
+                        <input type="number" min="0" th:field="*{totalHits}" id="totalHits" class="form-control">
+                        <div th:if="${#fields.hasErrors('totalHits')}" class="text-danger" th:errors="*{totalHits}"></div>
+                    </div>
+                </div>
+
+                <p class="form-text mb-3" th:text="#{msg.participation-form.derivedInfo}"></p>
+
+                <button type="submit" class="btn btn-primary"
+                        th:text="${participation.id == null} ? #{msg.participation-form.create} : #{msg.participation-form.update}">
+                    Crear
+                </button>
+                <a th:href="@{/participations}" class="btn btn-secondary"
+                   th:text="#{msg.participation-form.returnback}">Volver al listado</a>
+            </form>
+        </section>
+    </main>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>
