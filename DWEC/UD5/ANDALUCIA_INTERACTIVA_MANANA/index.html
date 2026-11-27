@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andalucía Monumental · Experiencias</title>
+<link rel="stylesheet" href="css/estilos.css">
+<script src="js/datos.js" defer></script>
+<script src="js/explorador.js" defer></script>
+<script src="js/comparador.js" defer></script>
+<script src="js/galeria.js" defer></script>
+<script src="js/curiosidades.js" defer></script>
+<script src="js/favoritos.js" defer></script>
+<script src="js/ruta.js" defer></script>
+<script src="js/adivina.js" defer></script>
+<script src="js/sorpresa.js" defer></script>
+<script src="js/navegacion.js" defer></script>
+</head>
+<body>
+<header class="header"><div class="header-inner"><a class="logo" href="#inicio"><span class="logo-icon">✳</span><span>ANDALUCÍA <strong>MONUMENTAL</strong><small>Patrimonio, historia y cultura</small></span></a><div class="header-side"><span class="header-tag">8 EXPERIENCIAS</span><span class="header-dot"></span> Proyecto DAW2</div></div></header>
+<main id="inicio">
+<section class="hero"><div class="hero-content"><span class="eyebrow">VIVE EL PATRIMONIO DE ANDALUCÍA</span><h1>Ocho maneras de<br><em>descubrir Andalucía.</em></h1><p>Explora rincones históricos, compara monumentos, construye tu ruta y pon a prueba lo que sabes.</p><a href="#experiencias" class="hero-link">Comenzar a explorar <span>↗</span></a><div class="hero-figures"><span><strong>24</strong> monumentos</span><span><strong>8</strong> provincias</span><span><strong>8</strong> experiencias</span></div></div><div class="hero-side"><span class="hero-side-label">01 / GRANADA</span></div></section>
+<section id="experiencias" class="experiencias"><div class="section-heading"><div><span class="section-kicker">TU VIAJE COMIENZA AQUÍ</span><h2>Elige una experiencia</h2><p>Cuatro áreas para conocer y disfrutar nuestro patrimonio.</p></div><span class="pill">JavaScript · DOM · Eventos</span></div>
+<div class="tabs" id="tabs"><button class="tab activo" data-area="explora" type="button"><span>01</span> Explora</button><button class="tab" data-area="descubre" type="button"><span>02</span> Descubre</button><button class="tab" data-area="organiza" type="button"><span>03</span> Organiza</button><button class="tab" data-area="juega" type="button"><span>04</span> Juega</button></div>
+<section id="area-explora" class="area activo"><div class="area-intro"><span>01 / EXPLORA</span><h3>Tu guía monumental</h3><p>Recorre un pequeño catálogo y compara dos lugares de Andalucía.</p></div>
+<div class="module"><div class="module-header"><div class="number">01</div><div><span class="module-kicker">EQUIPO 1</span><h4>Explorador de monumentos</h4><p>Seis lugares emblemáticos. Filtra por provincia y cambia el tamaño de las tarjetas.</p></div></div><div class="controls"><label>Provincia <select id="ex-provincia"><option value="Todas">Todas las provincias</option><option>Granada</option><option>Sevilla</option><option>Córdoba</option><option>Málaga</option><option>Cádiz</option><option>Jaén</option></select></label><button id="ex-tamano" class="btn btn-light" type="button">Vista compacta</button><span id="ex-contador" class="mini-status"></span></div><div id="ex-resultados" class="cards"></div></div>
+<div class="module"><div class="module-header"><div class="number">02</div><div><span class="module-kicker">EQUIPO 2</span><h4>Comparador de monumentos</h4><p>Elige dos lugares y descubre cuál tiene una visita estimada más larga.</p></div></div><div class="controls"><label>Primer monumento <select id="co-uno"></select></label><label>Segundo monumento <select id="co-dos"></select></label><button id="co-comparar" class="btn" type="button">Comparar ↗</button></div><div id="co-resultado" class="comparison"><div class="empty-state">Selecciona dos lugares y pulsa «Comparar».</div></div></div></section>
+<section id="area-descubre" class="area"><div class="area-intro"><span>02 / DESCUBRE</span><h3>Historias que perduran</h3><p>Mira la galería y descubre pequeñas curiosidades del patrimonio.</p></div>
+<div class="module"><div class="module-header"><div class="number">03</div><div><span class="module-kicker">EQUIPO 3</span><h4>Galería interactiva</h4><p>Selecciona una miniatura o avanza entre las fotografías.</p></div></div><div class="gallery"><div class="gallery-main"><img id="ga-principal" src="img/monumento-01.webp" alt="Monumento de Andalucía"><div class="gallery-caption"><h5 id="ga-titulo">La Alhambra</h5><p id="ga-descripcion">Granada</p></div></div><div class="gallery-side"><div id="ga-miniaturas" class="thumbs"></div><div class="gallery-controls"><button id="ga-anterior" class="btn btn-light" type="button">← Anterior</button><button id="ga-siguiente" class="btn" type="button">Siguiente →</button></div></div></div></div>
+<div class="module"><div class="module-header"><div class="number">04</div><div><span class="module-kicker">EQUIPO 4</span><h4>Curiosidades por descubrir</h4><p>Cuatro historias con información escondida. Pulsa en cada tarjeta.</p></div></div><div id="cu-tarjetas" class="curiosities"></div></div></section>
+<section id="area-organiza" class="area"><div class="area-intro"><span>03 / ORGANIZA</span><h3>Guarda tus rincones</h3><p>Crea tus favoritos y prepara una pequeña ruta personal.</p></div>
+<div class="module"><div class="module-header"><div class="number">05</div><div><span class="module-kicker">EQUIPO 5</span><h4>Mis favoritos</h4><p>Guarda monumentos para volver a encontrarlos. Se conservan al actualizar la página.</p></div></div><div class="controls"><label>Monumento <select id="fa-select"></select></label><button id="fa-anadir" class="btn" type="button">♡ Añadir favorito</button><span id="fa-contador" class="mini-status">0 favoritos</span></div><div id="fa-lista" class="saved-list"></div></div>
+<div class="module"><div class="module-header"><div class="number">06</div><div><span class="module-kicker">EQUIPO 6</span><h4>Mi ruta por Andalucía</h4><p>Escoge varias visitas y descubre cuánto tiempo necesitarías.</p></div></div><div class="controls"><label>Monumento <select id="ru-select"></select></label><button id="ru-anadir" class="btn" type="button">+ Añadir visita</button><span id="ru-total" class="mini-status">0 minutos</span></div><div id="ru-lista" class="route-list"></div></div></section>
+<section id="area-juega" class="area"><div class="area-intro"><span>04 / JUEGA</span><h3>¿Cuánto sabes?</h3><p>Observa, responde y deja que Andalucía te sorprenda.</p></div>
+<div class="module"><div class="module-header"><div class="number">07</div><div><span class="module-kicker">EQUIPO 7</span><h4>Adivina el monumento</h4><p>Tres preguntas, tres respuestas posibles en cada una.</p></div></div><div class="quiz"><div id="ad-pregunta"></div><div class="quiz-bottom"><span id="ad-marcador">Pregunta 1 de 3</span><button id="ad-siguiente" class="btn" type="button">Siguiente →</button></div></div></div>
+<div class="module"><div class="module-header"><div class="number">08</div><div><span class="module-kicker">EQUIPO 8 · INDIVIDUAL</span><h4>Un monumento sorpresa</h4><p>Una elección aleatoria y una pequeña descripción que puedes descubrir.</p></div></div><div class="controls"><button id="so-generar" class="btn" type="button">✳ Sorpréndeme</button></div><div id="so-resultado" class="surprise"><div class="empty-state">Pulsa «Sorpréndeme» para descubrir un monumento.</div></div></div></section>
+</section>
+</main><footer><strong>ANDALUCÍA MONUMENTAL</strong><span>Proyecto colaborativo · DWEC · RA4 + RA5</span><span>Imágenes ilustrativas de carácter didáctico · Duraciones orientativas</span></footer>
+</body></html>
