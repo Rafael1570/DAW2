@@ -33,12 +33,71 @@ let imagenMostrada = 0; // índice de la imagen actual (0 a 5)
 //         llevar src y alt correspondientes al monumento.
 //         Cada botón debe llevar el atributo "data-indice" con la posición
 //         (0, 1, 2, 3, 4 o 5) de la miniatura que representa.
+let button1 = document.createElement("button");
+button1.classList.add("thumb");
+button1.setAttribute("data-indice", "0");
+let img1 = document.createElement("img");
+img1.src = gaPrimeroSeis[0].imagen;
+img1.alt = gaPrimeroSeis[0].nombre;
+button1.appendChild(img1);
 
+let button2 = document.createElement("button");
+button2.classList.add("thumb");
+button2.setAttribute("data-indice", "1");
+let img2 = document.createElement("img");
+img2.src = gaPrimeroSeis[1].imagen;
+img2.alt = gaPrimeroSeis[1].nombre;
+button2.appendChild(img2);
+
+let button3 = document.createElement("button");
+button3.classList.add("thumb");
+button3.setAttribute("data-indice", "2");
+let img3 = document.createElement("img");
+img3.src = gaPrimeroSeis[2].imagen;
+img3.alt = gaPrimeroSeis[2].nombre;
+button3.appendChild(img3);
+
+let button4 = document.createElement("button");
+button4.classList.add("thumb");
+button4.setAttribute("data-indice", "3");
+let img4 = document.createElement("img");
+img4.src = gaPrimeroSeis[3].imagen;
+img4.alt = gaPrimeroSeis[3].nombre;
+button4.appendChild(img4);
+
+let button5 = document.createElement("button");
+button5.classList.add("thumb");
+button5.setAttribute("data-indice", "4");
+let img5 = document.createElement("img");
+img5.src = gaPrimeroSeis[4].imagen;
+img5.alt = gaPrimeroSeis[4].nombre;
+button5.appendChild(img5);
+
+let button6 = document.createElement("button");
+button6.classList.add("thumb");
+button6.setAttribute("data-indice", "5");
+let img6 = document.createElement("img");
+img6.src = gaPrimeroSeis[5].imagen;
+img6.alt = gaPrimeroSeis[5].nombre;
+button6.appendChild(img6);
+
+let gaMiniaturas = document.getElementById("ga-miniaturas");
 // PASO 4. Programad los eventos de las seis miniaturas y los botones de navegación.
+let botones = [button1, button2, button3, button4, button5, button6];
+botones.forEach((boton) => {
+    boton.addEventListener("click", pulsarMiniatura);
+    gaMiniaturas.appendChild(boton);
+});
 
+let gaAnterior = document.getElementById("ga-anterior");
+gaAnterior.addEventListener("click", galeriaAnterior);
+
+let gaSiguiente = document.getElementById("ga-siguiente");
+gaSiguiente.addEventListener("click", galeriaSiguiente);
 function pulsarMiniatura(event) {
     // PASO 5. Averiguad qué miniatura se ha pulsado y cambiad el índice actual.
     //         Después, actualizad el contenido de la galería.
+     
 }
 
 function galeriaAnterior() {
