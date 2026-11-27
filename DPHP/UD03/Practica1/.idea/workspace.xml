@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc5921d6-a5c4-42bf-a9b8-270433dcbde7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../formularios.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sesiones.7z" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/Ejercicio5-Carrito/composer.json" />
+      <option value="$PROJECT_DIR$/Ejercicio6-Logout/composer.json" />
+      <option value="$PROJECT_DIR$/Ejercicio4-Contador/composer.json" />
+      <option value="$PROJECT_DIR$/Ejercicio2-Contacto/composer.json" />
+      <option value="$PROJECT_DIR$/Ejercicio1-Registro/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/Ejercicio3-Login/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php">
+    <include_path>
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio3-Login/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio5-Carrito/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/Ejercicio6-Logout/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio4-Contador/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio2-Contacto/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/runtime" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/password-hasher" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-php85" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/type-info" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/composer" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/Ejercicio1-Registro/vendor/symfony/property-access" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3ManAaUjbZssTZQgiukBDXuJLWr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "tech-cokerizacion",
+    "last_opened_file_path": "/home/usuario-m/Documentos/DAW2/DPHP/UD03/Practica1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/Ejercicio3-Login/composer.json" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-56aff7b04f6f-JavaScript-PS-263.7307.352" />
+        <option value="bundled-php-predefined-a98d8de5180a-ec844a175cc0-com.jetbrains.php.sharedIndexes-PS-263.7307.352" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc5921d6-a5c4-42bf-a9b8-270433dcbde7" name="Changes" comment="" />
+      <created>1795597403543</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1795597403543</updated>
+      <workItem from="1795597404662" duration="474000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

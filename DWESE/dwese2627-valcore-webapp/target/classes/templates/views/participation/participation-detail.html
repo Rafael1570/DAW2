@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(#{msg.participation-detail.title})}"></head>
+<body class="d-flex flex-column h-100">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div class="content-wrapper">
+    <main class="form-page">
+        <div class="form-card">
+
+            <!-- Título: Detalle de la participación: {RiotID} -->
+            <h1>
+                <span th:text="#{msg.participation-detail.title}"></span>:
+                <span th:text="${participation.player != null} ? ${participation.player.riotId} : ${participation.id}"></span>
+            </h1>
+
+            <!-- Mensaje de error (si llega vía flash/atributo) -->
+            <div th:if="${errorMessage}"
+                 class="alert alert-danger"
+                 th:text="${errorMessage}"></div>
+
+            <!-- Datos básicos de la participación -->
+            <div class="mt-3">
+                <h2 class="h5" th:text="#{msg.participation-detail.section.participationData}"></h2>
+                <dl class="row">
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.id}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.id}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.matchId}"></dt>
+                    <dd class="col-sm-8"><code th:text="${participation.matchId}"></code></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.team}"></dt>
+                    <dd class="col-sm-8">
+                        <span class="badge"
+                              th:classappend="${participation.team == 'RED'} ? 'text-bg-danger' : 'text-bg-primary'"
+                              th:text="#{${'msg.participation.team.' + participation.team}}"></span>
+                    </dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.result}"></dt>
+                    <dd class="col-sm-8">
+                        <span class="badge"
+                              th:classappend="${participation.result == 'VICTORY'} ? 'text-bg-success'
+                                              : (${participation.result == 'DEFEAT'} ? 'text-bg-secondary' : 'text-bg-warning')"
+                              th:text="#{${'msg.participation.result.' + participation.result}}"></span>
+                    </dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.kills}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.kills}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.deaths}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.deaths}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.assists}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.assists}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.totalScore}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.totalScore}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.roundsPlayed}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.roundsPlayed}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.headshots}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.headshots}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.totalHits}"></dt>
+                    <dd class="col-sm-8" th:text="${participation.totalHits}"></dd>
+                </dl>
+            </div>
+
+            <!-- Atributos derivados (calculados en el Mapper) -->
+            <div class="mt-4">
+                <h2 class="h5" th:text="#{msg.participation-detail.section.derived}"></h2>
+                <dl class="row">
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.kda}"></dt>
+                    <dd class="col-sm-8" th:text="${#numbers.formatDecimal(participation.kda, 1, 2)}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.acs}"></dt>
+                    <dd class="col-sm-8"
+                        th:text="${participation.acs != null} ? ${#numbers.formatDecimal(participation.acs, 1, 1)} : #{msg.participation-detail.notAvailable}"></dd>
+
+                    <dt class="col-sm-4" th:text="#{msg.participation-detail.field.headshotPercentage}"></dt>
+                    <dd class="col-sm-8"
+                        th:text="${participation.headshotPercentage != null} ? |${#numbers.formatDecimal(participation.headshotPercentage, 1, 1)} %| : #{msg.participation-detail.notAvailable}"></dd>
+                </dl>
+            </div>
+
+            <!-- Jugador asociado (uno solo: lado 1 de la relación) -->
+            <div class="mt-4">
+                <h2 class="h5" th:text="#{msg.participation-detail.section.player}">Jugador</h2>
+
+                <div th:if="${participation.player == null}"
+                     class="alert alert-info"
+                     th:text="#{msg.participation-detail.player.empty}">
+                    Esta participación no tiene jugador asociado.
+                </div>
+
+                <div th:if="${participation.player != null}">
+                    <dl class="row">
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.riotId}"></dt>
+                        <dd class="col-sm-8 fw-semibold" th:text="${participation.player.riotId}"></dd>
+
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.puuid}"></dt>
+                        <dd class="col-sm-8"><code th:text="${participation.player.puuid}"></code></dd>
+
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.region}"></dt>
+                        <dd class="col-sm-8" th:text="${#strings.toUpperCase(participation.player.region)}"></dd>
+
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.accountLevel}"></dt>
+                        <dd class="col-sm-8" th:text="${participation.player.accountLevel}"></dd>
+
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.currentRank}"></dt>
+                        <dd class="col-sm-8"
+                            th:text="${participation.player.currentRank != null} ? ${participation.player.currentRank} : #{msg.participation-detail.player.unranked}"></dd>
+
+                        <dt class="col-sm-4" th:text="#{msg.participation-detail.player.field.registeredMatches}"></dt>
+                        <dd class="col-sm-8" th:text="${participation.player.registeredMatches}"></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Acciones -->
+            <div class="mt-4">
+                <a class="btn btn-primary" th:href="@{/participations/edit(id=${participation.id})}"
+                   th:text="#{msg.participation-detail.action.edit}"></a>
+                <a class="btn btn-secondary" th:href="@{/participations}"
+                   th:text="#{msg.participation-detail.action.back}"></a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

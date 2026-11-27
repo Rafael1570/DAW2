@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(#{msg.index.title})}"></head>
+<body class="d-flex flex-column h-100">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div class="content-wrapper">
+    <main>
+        <div class="container text-center">
+            <img th:src="@{/images/logo.png}" alt="Valcore" width="92" height="81" class="mb-3">
+            <h1 class="display-5 fw-semibold">Valcore</h1>
+            <p class="lead" th:text="#{msg.index.lead}">Tracker de Valorant.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                <a class="btn btn-dark" th:href="@{/participations}"
+                   th:text="#{msg.index.participations}">Ver participaciones</a>
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>

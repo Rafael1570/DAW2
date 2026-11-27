@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(#{msg.participation-list.title})}"></head>
+<body class="d-flex flex-column h-100">
+<header th:replace="~{fragments/header :: header}"></header>
+
+<div class="content-wrapper">
+    <main class="list-page">
+        <!-- sortParam llega del controller con el formato "campo,asc|desc" -->
+        <section class="list-card"
+                 th:with="sortField=${#strings.substringBefore(sortParam, ',')},
+                          sortDir=${#strings.substringAfter(sortParam, ',')},
+                          reverseSortDir=${sortDir == 'asc' ? 'desc' : 'asc'}">
+            <h1 th:text="#{msg.participation-list.title}">Listado de Participaciones</h1>
+            <div th:if="${errorMessage}" class="alert alert-danger" th:text="${errorMessage}"></div>
+            <a th:href="@{/participations/new}" class="btn btn-success" th:text="#{msg.participation-list.add}">
+                Agregar Nueva Participación
+            </a>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                    <tr>
+                        <!-- ID -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'id,' + ((sortField == 'id') ? reverseSortDir : 'asc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.id}"></span>
+                                <span class="ms-1" th:if="${sortField == 'id'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <!-- Partida -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'matchId,' + ((sortField == 'matchId') ? reverseSortDir : 'asc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.matchId}"></span>
+                                <span class="ms-1" th:if="${sortField == 'matchId'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <!-- Jugador (player.riotName) -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'player.riotName,' + ((sortField == 'player.riotName') ? reverseSortDir : 'asc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.player}"></span>
+                                <span class="ms-1" th:if="${sortField == 'player.riotName'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <!-- Equipo -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'team,' + ((sortField == 'team') ? reverseSortDir : 'asc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.team}"></span>
+                                <span class="ms-1" th:if="${sortField == 'team'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <!-- K / D / A (ordena por bajas) -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'kills,' + ((sortField == 'kills') ? reverseSortDir : 'desc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.kda}"></span>
+                                <span class="ms-1" th:if="${sortField == 'kills'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <!-- KDA y ACS son atributos derivados: no se ordena por ellos -->
+                        <th th:text="#{msg.participation-list.kdaRatio}">KDA</th>
+                        <th th:text="#{msg.participation-list.acs}">ACS</th>
+
+                        <!-- Resultado -->
+                        <th>
+                            <a class="text-decoration-none"
+                               th:href="@{/participations(
+                                    page=${page != null ? page.number : 0},
+                                    size=${page != null ? page.size : 10},
+                                    sort=${'result,' + ((sortField == 'result') ? reverseSortDir : 'asc')}
+                               )}">
+                                <span th:text="#{msg.participation-list.result}"></span>
+                                <span class="ms-1" th:if="${sortField == 'result'}"
+                                      th:text="${sortDir == 'asc'} ? '▲' : '▼'"></span>
+                            </a>
+                        </th>
+
+                        <th th:text="#{msg.participation-list.actions}">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${page != null and page.empty}">
+                        <td colspan="9" class="text-center text-muted"
+                            th:text="#{msg.participation-list.empty}">No hay participaciones registradas.</td>
+                    </tr>
+                    <tr th:each="participation : ${page?.content}">
+                        <td th:text="${participation.id}"></td>
+                        <!-- Identificador de partida abreviado (el completo en el title) -->
+                        <td>
+                            <code th:text="${#strings.abbreviate(participation.matchId, 13)}"
+                                  th:title="${participation.matchId}"></code>
+                        </td>
+                        <!-- Riot ID del jugador asociado -->
+                        <td class="fw-semibold" th:text="${participation.playerName}"></td>
+                        <td>
+                            <span class="badge"
+                                  th:classappend="${participation.team == 'RED'} ? 'text-bg-danger' : 'text-bg-primary'"
+                                  th:text="#{${'msg.participation.team.' + participation.team}}"></span>
+                        </td>
+                        <td th:text="|${participation.kills} / ${participation.deaths} / ${participation.assists}|"></td>
+                        <td th:text="${#numbers.formatDecimal(participation.kda, 1, 2)}"></td>
+                        <td th:text="${participation.acs != null} ? ${#numbers.formatDecimal(participation.acs, 1, 1)} : '—'"></td>
+                        <td>
+                            <span class="badge"
+                                  th:classappend="${participation.result == 'VICTORY'} ? 'text-bg-success'
+                                                  : (${participation.result == 'DEFEAT'} ? 'text-bg-secondary' : 'text-bg-warning')"
+                                  th:text="#{${'msg.participation.result.' + participation.result}}"></span>
+                        </td>
+                        <td class="table-actions">
+                            <!-- Ver detalle -->
+                            <a th:href="@{/participations/detail(id=${participation.id})}"
+                               class="btn btn-outline-secondary btn-sm"
+                               th:text="#{msg.participation-list.viewDetail}">Ver detalle</a>
+                            <!-- Editar -->
+                            <a th:href="@{/participations/edit(id=${participation.id})}"
+                               class="btn btn-primary btn-sm" th:text="#{msg.participation-list.edit}">Editar</a>
+                            <!-- Eliminar -->
+                            <form th:action="@{/participations/delete}" method="post" class="d-inline"
+                                  th:attr="onsubmit=|return confirm('#{msg.participation-list.confirm}')|">
+                                <input type="hidden" name="id" th:value="${participation.id}">
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        th:text="#{msg.participation-list.delete}">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--/* La URL usa páginas desde 0. Los enlaces conservan el tamaño y el orden del listado. */-->
+            <div class="d-flex justify-content-between align-items-center mt-3"
+                 th:if="${page != null and page.totalPages > 0}">
+
+                <!-- Info de página -->
+                <div>
+                    <!-- "Página X de Y (N registros en total)" -->
+                    <span th:text="#{msg.pagination.info(${page.number} + 1, ${page.totalPages}, ${page.totalElements})}"></span>
+                </div>
+
+                <!-- Controles de paginación -->
+                <nav th:aria-label="#{msg.pagination.aria.label}">
+                    <ul class="pagination mb-0">
+
+                        <!-- Botón Anterior -->
+                        <li class="page-item"
+                            th:classappend="${page.first} ? ' disabled'">
+                            <a class="page-link"
+                               th:href="@{/participations(page=${page.number - 1}, size=${page.size}, sort=${sortParam})}"
+                               th:aria-label="#{msg.pagination.prev}">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        <!-- Números de página -->
+                        <li class="page-item"
+                            th:each="i : ${#numbers.sequence(0, page.totalPages - 1)}"
+                            th:classappend="${i} == ${page.number} ? ' active'">
+                            <a class="page-link"
+                               th:text="${i + 1}"
+                               th:href="@{/participations(page=${i}, size=${page.size}, sort=${sortParam})}"></a>
+                        </li>
+
+                        <!-- Botón Siguiente -->
+                        <li class="page-item"
+                            th:classappend="${page.last} ? ' disabled'">
+                            <a class="page-link"
+                               th:href="@{/participations(page=${page.number + 1}, size=${page.size}, sort=${sortParam})}"
+                               th:aria-label="#{msg.pagination.next}">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+<div th:replace="~{fragments/scripts :: scripts}"></div>
+</body>
+</html>
